@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" translatable="false">Movies and TvShows Catalogue</string>
+    <string name="user_score">Vote Average</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_tvshow">Tv Shows</string>
+    <string name="play_trailer">Play Trailer</string>
+    <string name="overview">Overview</string>
+    <string name="change_language_settings">Change Language</string>
+</resources>

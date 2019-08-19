@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" translatable="false">Katalog Film dan Acara Tv</string>
+    <string name="user_score">Suara Rata-rata</string>
+    <string name="title_movies">Film</string>
+    <string name="title_tvshow">Acara Tv</string>
+    <string name="play_trailer">Mainkan Trailer</string>
+    <string name="overview">Ikhtisar</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+</resources>
