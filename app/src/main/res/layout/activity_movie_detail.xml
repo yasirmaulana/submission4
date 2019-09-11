@@ -156,6 +156,18 @@
             app:layout_constraintTop_toBottomOf="@+id/backdrop_detail"
             android:visibility="gone"/>
 
-
+        <Button
+            android:id="@+id/btn_submit_fav"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_overview" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

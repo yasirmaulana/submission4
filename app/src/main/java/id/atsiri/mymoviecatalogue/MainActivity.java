@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_change_setting) {
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
+        }
+
+        if (item.getItemId() == R.id.action_favorite) {
+            Intent favoriteList = new Intent(MainActivity.this, FavoriteList.class);
+            startActivity(favoriteList);
         }
         return super.onOptionsItemSelected(item);
     }
