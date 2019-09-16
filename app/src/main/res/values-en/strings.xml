@@ -8,4 +8,6 @@
     <string name="overview">Overview</string>
     <string name="change_language_settings">Change Language</string>
     <string name="favorite">Favorite</string>
+    <string name="submit">submit</string>
+    <string name="delete">delete</string>
 </resources>

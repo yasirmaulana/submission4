@@ -2,8 +2,6 @@ package id.atsiri.mymoviecatalogue;
 
 import android.view.View;
 
-import id.atsiri.mymoviecatalogue.adapter.MovieAdapter;
-
 public class CustomOnItemClickListener implements View.OnClickListener {
     private int position;
     private OnItemClickCallback onItemClickCallback;
