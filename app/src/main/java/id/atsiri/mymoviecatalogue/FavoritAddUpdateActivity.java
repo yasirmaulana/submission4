@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class FavoritAddUpdateActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText edtTitle, edtOverview;
+    private EditText edtFavid, edtBackdropPath, edtPosterPath, edtTitle, edtVoteAverage, edtOverview, edtStatus;
     private Button btnSubmit;
 
     public static final String EXTRA_FAVORITE = "extra_favorite";
@@ -45,8 +45,14 @@ public class FavoritAddUpdateActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorit_add_update);
 
+        edtFavid = findViewById(R.id.edt_favid);
+        edtBackdropPath = findViewById(R.id.edt_backdroppath);
+        edtPosterPath = findViewById(R.id.edt_posterpath);
         edtTitle = findViewById(R.id.edt_title);
+        edtVoteAverage = findViewById(R.id.edt_voteaverage);
         edtOverview = findViewById(R.id.edt_overview);
+        edtStatus = findViewById(R.id.edt_status);
+
         btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
 
@@ -91,8 +97,13 @@ public class FavoritAddUpdateActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_submit) {
+            String favid = edtFavid.getText().toString().trim();
+            String backdroppath = edtBackdropPath.getText().toString().trim();
+            String posterpath = edtPosterPath.getText().toString().trim();
             String title = edtTitle.getText().toString().trim();
+            String voteaverage = edtVoteAverage.getText().toString().trim();
             String overview = edtOverview.getText().toString().trim();
+            String status = edtStatus.getText().toString().trim();
 
             /*
             Jika fieldnya masih kosong maka tampilkan error
@@ -102,8 +113,13 @@ public class FavoritAddUpdateActivity extends AppCompatActivity implements View.
                 return;
             }
 
+            favorite.setFavId(favid);
+            favorite.setBackdropPath(backdroppath);
+            favorite.setPosterPath(posterpath);
             favorite.setTitle(title);
+            favorite.setVoteAverage(voteaverage);
             favorite.setOverView(overview);
+            favorite.setStatus(status);
 
             Intent intent = new Intent();
             intent.putExtra(EXTRA_FAVORITE, favorite);
@@ -124,7 +140,7 @@ public class FavoritAddUpdateActivity extends AppCompatActivity implements View.
 
                 long result = favoriteHelper.insertFavorite(favorite);
                 if (result > 0) {
-                    favorite.setFavId((int) result);
+                    favorite.setId((int) result);
                     setResult(RESULT_ADD, intent);
                     finish();
                 } else {
@@ -189,7 +205,7 @@ public class FavoritAddUpdateActivity extends AppCompatActivity implements View.
                         if (isDialogClose) {
                             finish();
                         } else {
-                            long result = favoriteHelper.deleteFavorite(favorite.getFavId());
+                            long result = favoriteHelper.deleteFavorite(favorite.getId());
                             if (result > 0) {
                                 Intent intent = new Intent();
                                 intent.putExtra(EXTRA_POSITION, position);

@@ -14,6 +14,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
       "CREATE TABLE %s" + " (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
               " %s TEXT NOT NULL, " +
               " %s TEXT NOT NULL, " +
+              " %s TEXT NOT NULL, " +
+              " %s TEXT NOT NULL, " +
+              " %s TEXT NOT NULL, " +
+              " %s TEXT NOT NULL, " +
               " %s TEXT NOT NULL)",
             DatabaseContract.TABLE_FAVORITE,
             DatabaseContract.FavoriteColumns._ID,

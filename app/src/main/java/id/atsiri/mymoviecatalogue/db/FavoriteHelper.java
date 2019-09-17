@@ -64,7 +64,7 @@ public class FavoriteHelper {
         if (cursor.getCount() > 0) {
             do {
                 favorite = new Favorite();
-                favorite.setFavId(cursor.getInt(cursor.getColumnIndexOrThrow(FAVID)));
+                favorite.setFavId(cursor.getString(cursor.getColumnIndexOrThrow(FAVID)));
                 favorite.setBackdropPath(cursor.getString(cursor.getColumnIndexOrThrow(BACKDROPPATH)));
                 favorite.setPosterPath(cursor.getString(cursor.getColumnIndexOrThrow(POSTERPATH)));
                 favorite.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(TITLE)));
@@ -102,6 +102,7 @@ public class FavoriteHelper {
         args.put(TITLE, favorite.getTitle());
         args.put(VOTEAVERAGE, favorite.getVoteAverage());
         args.put(OVERVIEW, favorite.getOverView());
+        args.put(STATUS, favorite.getStatus());
 
         return database.update(DATABASE_TABLE, args, FAVID + "= '" + favorite.getFavId() + "'", null);
     }

@@ -4,7 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Favorite implements Parcelable {
-    private int favId;
+    private int id;
+    private String favId;
     private String backdropPath;
     private String posterPath;
     private String title;
@@ -12,9 +13,13 @@ public class Favorite implements Parcelable {
     private String overView;
     private String status;
 
-    public int getFavId() { return favId;  }
+    public int getId() { return id; }
 
-    public void setFavId(int favId) { this.favId = favId; }
+    public void setId(int id) { this.id = id; }
+
+    public String getFavId() { return favId;  }
+
+    public void setFavId(String favId) { this.favId = favId; }
 
     public String getBackdropPath() {
         return backdropPath;
@@ -67,7 +72,7 @@ public class Favorite implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(favId);
+        dest.writeString(favId);
         dest.writeString(backdropPath);
         dest.writeString(posterPath);
         dest.writeString(title);
@@ -81,7 +86,7 @@ public class Favorite implements Parcelable {
     }
 
     private Favorite(Parcel in) {
-        favId = in.readInt();
+        favId = in.readString();
         backdropPath = in.readString();
         posterPath = in.readString();
         title = in.readString();

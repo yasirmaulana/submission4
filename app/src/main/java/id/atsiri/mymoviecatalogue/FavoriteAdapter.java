@@ -61,8 +61,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
         holder.tvTitle.setText(listFavorites.get(position).getTitle());
-        holder.tvReleaseData.setText(listFavorites.get(position).getVoteAverage());
-        holder.cvMovieFav.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        holder.tvVoteAverage.setText(listFavorites.get(position).getVoteAverage());
+        holder.cvFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
 //                Intent intent = new Intent(activity, MovieAddUpdateActivity.class);
@@ -80,14 +80,14 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     }
 
     class FavoriteViewHolder extends RecyclerView.ViewHolder {
-        final TextView tvReleaseData, tvTitle;
-        final CardView cvMovieFav;
+        final TextView tvTitle, tvVoteAverage;
+        final CardView cvFavorite;
 
         FavoriteViewHolder(View itemView) {
             super(itemView);
-            tvReleaseData = itemView.findViewById(R.id.tv_item_fav_release_date);
             tvTitle = itemView.findViewById(R.id.tv_item_fav_title);
-            cvMovieFav = itemView.findViewById(R.id.cv_item_fav);
+            tvVoteAverage = itemView.findViewById(R.id.tv_item_fav_voteaverage);
+            cvFavorite = itemView.findViewById(R.id.cv_item_fav);
         }
     }
 

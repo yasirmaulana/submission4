@@ -17,13 +17,68 @@
         android:layout_marginBottom="@dimen/activity_vertical_margin">
 
         <EditText
+            android:id="@+id/edt_favid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Favorite ID"
+            android:inputType="textCapSentences"
+            android:maxLines="1"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
+            android:id="@+id/edt_backdroppath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Backdrop Path"
+            android:inputType="textCapSentences"
+            android:maxLines="1"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
+            android:id="@+id/edt_posterpath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Poster Path"
+            android:inputType="textCapSentences"
+            android:maxLines="1"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
             android:id="@+id/edt_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Judul"
             android:inputType="textCapSentences"
             android:maxLines="1"/>
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
+            android:id="@+id/edt_voteaverage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Vote Average"
+            android:inputType="textCapSentences"
+            android:maxLines="1"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -36,6 +91,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Overview"
+            android:inputType="textCapSentences"
+            android:maxLines="1"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <EditText
+            android:id="@+id/edt_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status"
             android:inputType="textCapSentences"
             android:maxLines="1"/>
     </android.support.design.widget.TextInputLayout>

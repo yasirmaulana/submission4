@@ -6,17 +6,27 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class MovieDetailActivity extends AppCompatActivity {
+import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
+import id.atsiri.mymoviecatalogue.entity.Favorite;
+
+public class MovieDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_MOVIE = "extra_movie";
 
     private ProgressBar progressBar;
     private MovieDetailViewModel movieDetailViewModel;
+
+    private Favorite favorite;
+    private FavoriteHelper favoriteHelper;
+
+    public static final int RESULT_ADD = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,12 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         movieDetailViewModel.setMovieDetail(movieId);
         showLoading(true);
+
+        Button btnSubmitFav;
+        btnSubmitFav = findViewById(R.id.btn_submit_fav);
+        btnSubmitFav.setOnClickListener(this);
+
+        favoriteHelper = FavoriteHelper.getInstance(getApplicationContext());
 
     }
 
@@ -77,5 +93,23 @@ public class MovieDetailActivity extends AppCompatActivity {
         }
     }
 
+    public MovieDetailActivity() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        String title = "beranak dalam kubur";
+        Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+
+//        favorite.setTitle(title);
+//        long result = favoriteHelper.insertFavorite(favorite);
+//        if (result > 0) {
+//            favorite.setId((int) result);
+//            setResult(RESULT_ADD);
+//            finish();
+//        } else {
+//            Toast.makeText(this, "Gagal menambah data", Toast.LENGTH_SHORT).show();
+//        }
+    }
 }
