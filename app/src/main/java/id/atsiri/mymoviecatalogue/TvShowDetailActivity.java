@@ -19,11 +19,6 @@ import id.atsiri.mymoviecatalogue.entity.Favorite;
 
 public class TvShowDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_TVSHOW = "extra_tvshow";
-    ImageView backdropDetail;
-    ImageView posterDetail;
-    TextView tvTitleDetail;
-    TextView tvUserScoreDetail;
-    TextView tvOverview;
 
     private ProgressBar progressBar;
     private TvShowDetailViewModel tvShowDetailViewModel;
@@ -60,6 +55,12 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
     private Observer<TvShowDetail> getModelTvShowDetail = new Observer<TvShowDetail>() {
         @Override
         public void onChanged(@Nullable TvShowDetail tvShowDetail) {
+            ImageView backdropDetail;
+            ImageView posterDetail;
+            TextView tvTitleDetail;
+            TextView tvUserScoreDetail;
+            TextView tvOverview;
+
             if (tvShowDetail != null) {
                 String sPath = "https://image.tmdb.org/t/p/w342";
 
@@ -122,9 +123,16 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_submit_fav_tv) {
+            TvShowItems tvshow = getIntent().getParcelableExtra(EXTRA_TVSHOW);
+            int tvShowId = tvshow.getId();
 
-            tvShowDetailViewModel = ViewModelProviders.of(this).get(TvShowDetailViewModel.class);
-            tvShowDetailViewModel.getTvShowDetail().observe(this, getTvShowDetailModel);
+            int result = favoriteHelper.getFav(tvShowId);
+            if (result > 0) {
+                Toast.makeText(this, "Tv Show ini sudah ada di Favorite ", Toast.LENGTH_SHORT).show();
+            } else {
+                tvShowDetailViewModel = ViewModelProviders.of(this).get(TvShowDetailViewModel.class);
+                tvShowDetailViewModel.getTvShowDetail().observe(this, getTvShowDetailModel);
+            }
 
         }
     }

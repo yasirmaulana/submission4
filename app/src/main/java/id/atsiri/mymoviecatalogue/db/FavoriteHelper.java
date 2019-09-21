@@ -57,8 +57,7 @@ public class FavoriteHelper {
 
     public ArrayList<Favorite> getAllFavorites() {
         ArrayList<Favorite> arrayList = new ArrayList<>();
-        Cursor cursor = database.query(DATABASE_TABLE, null, null, null,
-                null, null, _ID + " ASC", null);
+        Cursor cursor = database.query(DATABASE_TABLE, null, null, null, null, null, _ID + " ASC", null);
         cursor.moveToFirst();
         Favorite favorite;
         if (cursor.getCount() > 0) {
@@ -79,6 +78,17 @@ public class FavoriteHelper {
         }
         cursor.close();
         return arrayList;
+    }
+
+    public int getFav(long id) {
+        String countQuery = "SELECT * FROM " + DATABASE_TABLE + " WHERE " + FAVID + "=" + id;
+
+        Cursor cursor = database.rawQuery(countQuery, null);
+
+        int count = cursor.getCount();
+        cursor.close();
+
+        return count;
     }
 
     public long insertFavorite(Favorite favorite) {

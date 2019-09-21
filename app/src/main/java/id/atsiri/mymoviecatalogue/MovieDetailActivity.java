@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 
@@ -127,9 +129,18 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_submit_fav) {
+            MovieItems movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
+            int movieId = movie.getId();
+            String idMovie = String.valueOf(movieId);
 
-            movieDetailViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel.class);
-            movieDetailViewModel.getMovieDetail().observe(this, getMovieDetailModel);
+            int result = favoriteHelper.getFav(movieId);
+            if (result > 0) {
+                Toast.makeText(this, "Movie ini sudah ada di Favorite ", Toast.LENGTH_SHORT).show();
+            } else {
+//                Toast.makeText(this, "bisa diinsert ["  + result + "] " +idMovie, Toast.LENGTH_SHORT).show();
+                movieDetailViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel.class);
+                movieDetailViewModel.getMovieDetail().observe(this, getMovieDetailModel);
+            }
 
         }
     }

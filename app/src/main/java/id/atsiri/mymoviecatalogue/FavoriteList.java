@@ -24,6 +24,7 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
     private static final String EXTRA_STATE = "EXTRA_STATE";
     private FavoriteAdapter adapter;
     private FavoriteHelper favoriteHelper;
+    private String favid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
