@@ -4,7 +4,7 @@ import android.provider.BaseColumns;
 
 public class DatabaseContract {
 
-    static String TABLE_FAVORITE = "favorite";
+    static String TABLE_FAVORITE = "favorite2";
 
     static final class FavoriteColumns implements BaseColumns {
 

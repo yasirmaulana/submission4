@@ -27,6 +27,7 @@ public class MovieDetailViewModel extends ViewModel {
                     JSONObject responseObject = new JSONObject(result);
                     MovieDetail modelMovieDetail = new MovieDetail(responseObject);
 
+                    mMovieDetail.setMovieId(modelMovieDetail.getMovieId());
                     mMovieDetail.setBackdropPath(modelMovieDetail.getBackdropPath());
                     mMovieDetail.setPosterPath(modelMovieDetail.getPosterPath());
                     mMovieDetail.setTitle(modelMovieDetail.getTitle());
