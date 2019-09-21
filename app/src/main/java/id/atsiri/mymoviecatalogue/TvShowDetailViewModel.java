@@ -27,6 +27,7 @@ public class TvShowDetailViewModel extends ViewModel {
                     JSONObject responseObject = new JSONObject(result);
                     TvShowDetail modelTvShowDetail = new TvShowDetail(responseObject);
 
+                    mTvShowDetail.setTvShowId(modelTvShowDetail.getTvShowId());
                     mTvShowDetail.setBackdropPath(modelTvShowDetail.getBackdropPath());
                     mTvShowDetail.setPosterPath(modelTvShowDetail.getPosterPath());
                     mTvShowDetail.setTitle(modelTvShowDetail.getTitle());

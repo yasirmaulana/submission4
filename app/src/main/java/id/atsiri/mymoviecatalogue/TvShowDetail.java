@@ -3,6 +3,7 @@ package id.atsiri.mymoviecatalogue;
 import org.json.JSONObject;
 
 public class TvShowDetail {
+    private String tvShowId;
     private String backdropPath;
     private String posterPath;
     private String title;
@@ -10,6 +11,10 @@ public class TvShowDetail {
     private String overView;
 
     public TvShowDetail() { }
+
+    public String getTvShowId() { return tvShowId; }
+
+    public void setTvShowId(String tvShowId) { this.tvShowId = tvShowId; }
 
     public String getBackdropPath() { return backdropPath; }
 
@@ -33,12 +38,14 @@ public class TvShowDetail {
 
     TvShowDetail(JSONObject object) {
         try {
+            String tvShowId = object.getString("id");
             String backdropPath = object.getString("backdrop_path");
             String posterPath = object.getString("poster_path");
             String title = object.getString("name");
             String voteAverage = object.getString("vote_average");
             String overView = object.getString("overview");
 
+            this.tvShowId = tvShowId;
             this.backdropPath = backdropPath;
             this.posterPath = posterPath;
             this.title = title;

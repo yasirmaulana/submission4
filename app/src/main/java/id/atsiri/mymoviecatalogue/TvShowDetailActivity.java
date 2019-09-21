@@ -6,13 +6,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class TvShowDetailActivity extends AppCompatActivity {
+import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
+import id.atsiri.mymoviecatalogue.entity.Favorite;
+
+public class TvShowDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_TVSHOW = "extra_tvshow";
     ImageView backdropDetail;
     ImageView posterDetail;
@@ -22,6 +27,9 @@ public class TvShowDetailActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TvShowDetailViewModel tvShowDetailViewModel;
+
+    public Favorite favorite;
+    public FavoriteHelper favoriteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,15 @@ public class TvShowDetailActivity extends AppCompatActivity {
 
         tvShowDetailViewModel.setTvShowDetail(tvShowId);
         showLoading(true);
+
+        favoriteHelper = FavoriteHelper.getInstance(getApplicationContext());
+
+        favoriteHelper.open();
+
+        Button btnSubmitFavTv;
+        btnSubmitFavTv = findViewById(R.id.btn_submit_fav_tv);
+        btnSubmitFavTv.setOnClickListener(this);
+
     }
 
     private Observer<TvShowDetail> getModelTvShowDetail = new Observer<TvShowDetail>() {
@@ -67,6 +84,29 @@ public class TvShowDetailActivity extends AppCompatActivity {
         }
     };
 
+    private Observer<TvShowDetail> getTvShowDetailModel = new Observer<TvShowDetail>() {
+        @Override
+        public void onChanged(@Nullable TvShowDetail tvShowDetail) {
+            favorite = new Favorite();
+            String idTvShow = tvShowDetail.getTvShowId();
+
+            favorite.setFavId(tvShowDetail.getTvShowId());
+            favorite.setBackdropPath(tvShowDetail.getBackdropPath());
+            favorite.setPosterPath(tvShowDetail.getPosterPath());
+            favorite.setTitle(tvShowDetail.getTitle());
+            favorite.setVoteAverage(tvShowDetail.getVoteAverage());
+            favorite.setOverView(tvShowDetail.getOverView());
+            favorite.setStatus("Tv Show");
+
+            long result = favoriteHelper.insertFavorite(favorite);
+            if (result > 0){
+                Toast.makeText(TvShowDetailActivity.this, "set Favorite, success " + idTvShow, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(TvShowDetailActivity.this, "set Favorite, fail", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
     private void showLoading(Boolean state) {
         if (state) {
             progressBar.setVisibility(View.VISIBLE);
@@ -75,4 +115,17 @@ public class TvShowDetailActivity extends AppCompatActivity {
         }
     }
 
+    public TvShowDetailActivity() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_submit_fav_tv) {
+
+            tvShowDetailViewModel = ViewModelProviders.of(this).get(TvShowDetailViewModel.class);
+            tvShowDetailViewModel.getTvShowDetail().observe(this, getTvShowDetailModel);
+
+        }
+    }
 }
