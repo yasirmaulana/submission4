@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -62,17 +65,20 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
+        String sPath = "https://image.tmdb.org/t/p/w342";
+
+        Glide.with(activity)
+                .load(sPath + listFavorites.get(position).getBackdropPath())
+                .into(holder.imgFav);
         holder.tvStatus.setText(listFavorites.get(position).getStatus());
         holder.tvTitle.setText(listFavorites.get(position).getTitle());
-        holder.tvVoteAverage.setText(listFavorites.get(position).getVoteAverage());
+//        holder.tvVoteAverage.setText(listFavorites.get(position).getVoteAverage());
         holder.cvFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(activity, "test click " + listFavorites.get(position), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, FavoriteDetailActivity.class);
-                intent.putExtra(FavoriteDetailActivity.EXTRA_POSITION, position);
                 intent.putExtra(FavoriteDetailActivity.EXTRA_FAVORITE, listFavorites.get(position));
-                activity.startActivityForResult(intent, FavoriteDetailActivity.REQUEST_UPDATE);
+                activity.startActivity(intent);
             }
         }));
 
@@ -84,14 +90,16 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     }
 
     class FavoriteViewHolder extends RecyclerView.ViewHolder {
-        final TextView tvStatus, tvTitle, tvVoteAverage;
+        final TextView tvStatus, tvTitle;
+        final ImageView imgFav;
         final CardView cvFavorite;
 
         FavoriteViewHolder(View itemView) {
             super(itemView);
+            imgFav = itemView.findViewById(R.id.img_item_fav);
             tvStatus = itemView.findViewById(R.id.tv_item_fav_status);
             tvTitle = itemView.findViewById(R.id.tv_item_fav_title);
-            tvVoteAverage = itemView.findViewById(R.id.tv_item_fav_voteaverage);
+//            tvVoteAverage = itemView.findViewById(R.id.tv_item_fav_voteaverage);
             cvFavorite = itemView.findViewById(R.id.cv_item_fav);
         }
     }

@@ -106,7 +106,7 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
 
             long result = favoriteHelper.insertFavorite(favorite);
             if (result > 0){
-                Toast.makeText(MovieDetailActivity.this, "set Favorite, success " + idMovie, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MovieDetailActivity.this, "set Favorite, success ", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(MovieDetailActivity.this, "set Favorite, fail", Toast.LENGTH_SHORT).show();
             }

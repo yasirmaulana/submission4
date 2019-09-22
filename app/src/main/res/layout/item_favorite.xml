@@ -16,44 +16,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
+        android:orientation="vertical">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/img_item_fav"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" -->
-            <!--android:adjustViewBounds="true"-->
-            <!--android:scaleType="fitXY"-->
-            <!--tools:src="@color/colorAccent" />-->
-
-        <TextView
-            android:id="@+id/tv_item_fav_status"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:gravity="start"
-            android:hint="status"
-            android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_item_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                tools:src="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/tv_item_fav_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Status"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:background="#4D000000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center_vertical"/>
+                <!--android:layout_marginBottom="@dimen/activity_vertical_margin"-->
+                <!--android:gravity="start"-->
+                <!--android:hint="status"-->
+                <!--android:textSize="16dp"-->
+                <!--android:textStyle="bold"/>-->
+
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tv_item_fav_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:gravity="start"
             android:hint="title_movie"
-            android:textSize="16dp"
-            android:textStyle="bold"/>
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:padding="@dimen/activity_horizontal_margin"/>
 
-        <TextView
-            android:id="@+id/tv_item_fav_voteaverage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:hint="vote_average"
-            android:textSize="12sp"/>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_item_fav_voteaverage"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="start"-->
+            <!--android:hint="vote_average"-->
+            <!--android:textSize="12sp"/>-->
 
     </LinearLayout>
 
