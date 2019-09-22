@@ -121,5 +121,9 @@ public class FavoriteHelper {
         return database.delete(TABLE_FAVORITE, _ID + " = '" + id + "'", null);
     }
 
+    public int deleteFav(String favid) {
+        return database.delete(TABLE_FAVORITE, FAVID + " = '" + favid + "'", null);
+    }
+
 
 }

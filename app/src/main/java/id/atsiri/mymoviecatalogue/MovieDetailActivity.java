@@ -22,8 +22,8 @@ import id.atsiri.mymoviecatalogue.entity.Favorite;
 public class MovieDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_MOVIE = "extra_movie";
 
-    public static final String EXTRA_FAVORITE = "extra_favorite";
-    public static final String EXTRA_POSITION = "extra_position";
+//    public static final String EXTRA_FAVORITE = "extra_favorite";
+//    public static final String EXTRA_POSITION = "extra_position";
 
     private ProgressBar progressBar;
     private MovieDetailViewModel movieDetailViewModel;
@@ -131,13 +131,12 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.btn_submit_fav) {
             MovieItems movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
             int movieId = movie.getId();
-            String idMovie = String.valueOf(movieId);
+//            String idMovie = String.valueOf(movieId);
 
             int result = favoriteHelper.getFav(movieId);
             if (result > 0) {
                 Toast.makeText(this, "Movie ini sudah ada di Favorite ", Toast.LENGTH_SHORT).show();
             } else {
-//                Toast.makeText(this, "bisa diinsert ["  + result + "] " +idMovie, Toast.LENGTH_SHORT).show();
                 movieDetailViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel.class);
                 movieDetailViewModel.getMovieDetail().observe(this, getMovieDetailModel);
             }

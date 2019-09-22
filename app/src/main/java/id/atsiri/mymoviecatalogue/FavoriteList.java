@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.adapter.FavoriteAdapter;
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 

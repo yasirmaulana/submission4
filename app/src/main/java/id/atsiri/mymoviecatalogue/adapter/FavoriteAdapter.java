@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.CustomOnItemClickListener;
+import id.atsiri.mymoviecatalogue.FavoriteDetailActivity;
+import id.atsiri.mymoviecatalogue.R;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder> {
@@ -72,7 +75,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
                 .into(holder.imgFav);
         holder.tvStatus.setText(listFavorites.get(position).getStatus());
         holder.tvTitle.setText(listFavorites.get(position).getTitle());
-//        holder.tvVoteAverage.setText(listFavorites.get(position).getVoteAverage());
         holder.cvFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
@@ -99,7 +101,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
             imgFav = itemView.findViewById(R.id.img_item_fav);
             tvStatus = itemView.findViewById(R.id.tv_item_fav_status);
             tvTitle = itemView.findViewById(R.id.tv_item_fav_title);
-//            tvVoteAverage = itemView.findViewById(R.id.tv_item_fav_voteaverage);
             cvFavorite = itemView.findViewById(R.id.cv_item_fav);
         }
     }

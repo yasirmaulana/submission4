@@ -40,14 +40,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:gravity="center_vertical"/>
-                <!--android:layout_marginBottom="@dimen/activity_vertical_margin"-->
-                <!--android:gravity="start"-->
-                <!--android:hint="status"-->
-                <!--android:textSize="16dp"-->
-                <!--android:textStyle="bold"/>-->
-
 
         </FrameLayout>
 
@@ -59,14 +53,6 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:padding="@dimen/activity_horizontal_margin"/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/tv_item_fav_voteaverage"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:gravity="start"-->
-            <!--android:hint="vote_average"-->
-            <!--android:textSize="12sp"/>-->
 
     </LinearLayout>
 

@@ -72,6 +72,7 @@ public class Favorite implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
         dest.writeString(favId);
         dest.writeString(backdropPath);
         dest.writeString(posterPath);
@@ -86,6 +87,7 @@ public class Favorite implements Parcelable {
     }
 
     private Favorite(Parcel in) {
+        id = in.readInt();
         favId = in.readString();
         backdropPath = in.readString();
         posterPath = in.readString();

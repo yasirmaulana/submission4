@@ -1,7 +1,10 @@
 package id.atsiri.mymoviecatalogue;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,7 +14,7 @@ import com.bumptech.glide.Glide;
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 
-public class FavoriteDetailActivity extends AppCompatActivity {
+public class FavoriteDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_FAVORITE = "extra_favorite";
 
     private Favorite favorite;
@@ -38,7 +41,6 @@ public class FavoriteDetailActivity extends AppCompatActivity {
 
         favorite = getIntent().getParcelableExtra(EXTRA_FAVORITE);
 
-
         if (favorite != null) {
             String sPath = "https://image.tmdb.org/t/p/w342";
             Glide.with(FavoriteDetailActivity.this)
@@ -54,6 +56,27 @@ public class FavoriteDetailActivity extends AppCompatActivity {
             favorite = new Favorite();
         }
 
+        Button btnDelete;
+        btnDelete = findViewById(R.id.btn_submit_fav);
+        btnDelete.setOnClickListener(this);
+
     }
 
+    public FavoriteDetailActivity() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        favorite = getIntent().getParcelableExtra(EXTRA_FAVORITE);
+
+        String favid = favorite.getFavId();
+        int del = favoriteHelper.deleteFav(favid);
+        if (del > 0) {
+            Toast.makeText(this, "Delete berhasil", Toast.LENGTH_SHORT).show();
+            Intent moveIntent = new Intent(FavoriteDetailActivity.this, FavoriteList.class);
+            startActivity(moveIntent);
+        }
+
+    }
 }
