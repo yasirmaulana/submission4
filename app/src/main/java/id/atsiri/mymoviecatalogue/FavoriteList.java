@@ -43,8 +43,8 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
         favoriteHelper.open();
 
         progressBar = findViewById(R.id.progressbar_favorite_rv);
-        fabAdd = findViewById(R.id.fab_add);
-        fabAdd.setOnClickListener(this);
+//        fabAdd = findViewById(R.id.fab_add);
+//        fabAdd.setOnClickListener(this);
 
         adapter = new FavoriteAdapter(this);
         rvFavorite.setAdapter(adapter);
@@ -67,10 +67,10 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.fab_add) {
-            Intent intent = new Intent(FavoriteList.this, FavoritAddUpdateActivity.class);
-            startActivityForResult(intent, FavoritAddUpdateActivity.REQUEST_ADD);
-        }
+//        if (view.getId() == R.id.fab_add) {
+//            Intent intent = new Intent(FavoriteList.this, FavoritAddUpdateActivity.class);
+//            startActivityForResult(intent, FavoritAddUpdateActivity.REQUEST_ADD);
+//        }
     }
 
     @Override

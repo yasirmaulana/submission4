@@ -1,6 +1,7 @@
 package id.atsiri.mymoviecatalogue;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -60,15 +62,17 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
+        holder.tvStatus.setText(listFavorites.get(position).getStatus());
         holder.tvTitle.setText(listFavorites.get(position).getTitle());
         holder.tvVoteAverage.setText(listFavorites.get(position).getVoteAverage());
         holder.cvFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-//                Intent intent = new Intent(activity, MovieAddUpdateActivity.class);
-//                intent.putExtra(MovieAddUpdateActivity.EXTRA_POSITION, position);
-//                intent.putExtra(MovieAddUpdateActivity.EXTRA_MOVIE, listMovieFav.get(position));
-//                activity.startActivityForResult(intent, MovieAddUpdateActivity.REQUEST_UPDATE);
+                Toast.makeText(activity, "test click " + listFavorites.get(position), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity, FavoriteDetailActivity.class);
+                intent.putExtra(FavoriteDetailActivity.EXTRA_POSITION, position);
+                intent.putExtra(FavoriteDetailActivity.EXTRA_FAVORITE, listFavorites.get(position));
+                activity.startActivityForResult(intent, FavoriteDetailActivity.REQUEST_UPDATE);
             }
         }));
 
@@ -80,11 +84,12 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     }
 
     class FavoriteViewHolder extends RecyclerView.ViewHolder {
-        final TextView tvTitle, tvVoteAverage;
+        final TextView tvStatus, tvTitle, tvVoteAverage;
         final CardView cvFavorite;
 
         FavoriteViewHolder(View itemView) {
             super(itemView);
+            tvStatus = itemView.findViewById(R.id.tv_item_fav_status);
             tvTitle = itemView.findViewById(R.id.tv_item_fav_title);
             tvVoteAverage = itemView.findViewById(R.id.tv_item_fav_voteaverage);
             cvFavorite = itemView.findViewById(R.id.cv_item_fav);
