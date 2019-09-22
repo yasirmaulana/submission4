@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +21,12 @@ public class FavoriteDetailActivity extends AppCompatActivity implements View.On
     private Favorite favorite;
     private FavoriteHelper favoriteHelper;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ImageView backdropDetail, posterDetail;
         TextView tvTitle, tvVoteAverage, tvOverview;
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_detail);
@@ -34,6 +36,9 @@ public class FavoriteDetailActivity extends AppCompatActivity implements View.On
         tvTitle = findViewById(R.id.tv_title_fav_detail);
         tvVoteAverage = findViewById(R.id.tv_voteaverage_fav_detail);
         tvOverview = findViewById(R.id.tv_overview_fav_detail);
+        progressBar = findViewById(R.id.progressBar_fav_detail);
+
+        showLoading(true);
 
         favoriteHelper = FavoriteHelper.getInstance(getApplicationContext());
 
@@ -52,6 +57,8 @@ public class FavoriteDetailActivity extends AppCompatActivity implements View.On
             tvTitle.setText(favorite.getTitle());
             tvVoteAverage.setText(favorite.getVoteAverage());
             tvOverview.setText(favorite.getOverView());
+
+            showLoading(false);
         } else {
             favorite = new Favorite();
         }
@@ -64,6 +71,14 @@ public class FavoriteDetailActivity extends AppCompatActivity implements View.On
 
     public FavoriteDetailActivity() {
 
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     @Override

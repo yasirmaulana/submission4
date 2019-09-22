@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FavoriteDetailActivity"></activity>
-        <activity android:name=".FavoritAddUpdateActivity" />
-        <activity android:name=".FavoriteList" />
+        <activity android:name=".FavoriteDetailActivity"
+            android:label="@string/favorite_detail"/>
+        <activity android:name=".FavoriteList"
+            android:label="@string/favorite"/>
         <activity android:name=".TvShowDetailActivity" />
         <activity android:name=".MovieDetailActivity" />
         <activity android:name=".MainActivity">

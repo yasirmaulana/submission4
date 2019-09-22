@@ -83,7 +83,6 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
     }
 
     private void showSelectedMovie(MovieItems movie) {
-//        Toast.makeText(getActivity(), movie.getTitle() + " > id :" + movie.getId(), Toast.LENGTH_SHORT).show();
         Intent movieDetail = new Intent(getActivity(), MovieDetailActivity.class);
         movieDetail.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie);
         startActivity(movieDetail);

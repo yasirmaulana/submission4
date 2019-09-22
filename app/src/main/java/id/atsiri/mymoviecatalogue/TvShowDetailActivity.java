@@ -89,8 +89,6 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
         @Override
         public void onChanged(@Nullable TvShowDetail tvShowDetail) {
             favorite = new Favorite();
-            String idTvShow = tvShowDetail.getTvShowId();
-
             favorite.setFavId(tvShowDetail.getTvShowId());
             favorite.setBackdropPath(tvShowDetail.getBackdropPath());
             favorite.setPosterPath(tvShowDetail.getPosterPath());
@@ -101,7 +99,7 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
 
             long result = favoriteHelper.insertFavorite(favorite);
             if (result > 0){
-                Toast.makeText(TvShowDetailActivity.this, "set Favorite, success " + idTvShow, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TvShowDetailActivity.this, "set Favorite, success", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(TvShowDetailActivity.this, "set Favorite, fail", Toast.LENGTH_SHORT).show();
             }

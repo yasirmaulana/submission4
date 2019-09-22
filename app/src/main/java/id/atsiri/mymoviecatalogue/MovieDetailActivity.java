@@ -14,16 +14,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 
 public class MovieDetailActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_MOVIE = "extra_movie";
-
-//    public static final String EXTRA_FAVORITE = "extra_favorite";
-//    public static final String EXTRA_POSITION = "extra_position";
 
     private ProgressBar progressBar;
     private MovieDetailViewModel movieDetailViewModel;
@@ -131,7 +126,6 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.btn_submit_fav) {
             MovieItems movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
             int movieId = movie.getId();
-//            String idMovie = String.valueOf(movieId);
 
             int result = favoriteHelper.getFav(movieId);
             if (result > 0) {

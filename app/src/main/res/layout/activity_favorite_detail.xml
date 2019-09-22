@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_movie_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6726F6F"
@@ -138,22 +137,22 @@
             app:layout_constraintVertical_bias="1.0"
             tools:text="overview movie" />
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/progressBar"-->
-            <!--style="?android:attr/progressBarStyle"-->
-            <!--android:layout_width="526dp"-->
-            <!--android:layout_height="45dp"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/tv_overview_fav_detail"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/backdrop_fav_detail"-->
-            <!--android:visibility="gone"/>-->
+        <ProgressBar
+            android:id="@+id/progressBar_fav_detail"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="526dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_overview_fav_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backdrop_fav_detail"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btn_submit_fav"

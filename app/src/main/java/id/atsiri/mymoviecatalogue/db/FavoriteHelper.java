@@ -104,23 +104,6 @@ public class FavoriteHelper {
         return database.insert(DATABASE_TABLE, null, args);
     }
 
-    public int updateFavorite(Favorite favorite) {
-        ContentValues args = new ContentValues();
-        args.put(FAVID, favorite.getFavId());
-        args.put(BACKDROPPATH, favorite.getBackdropPath());
-        args.put(POSTERPATH, favorite.getPosterPath());
-        args.put(TITLE, favorite.getTitle());
-        args.put(VOTEAVERAGE, favorite.getVoteAverage());
-        args.put(OVERVIEW, favorite.getOverView());
-        args.put(STATUS, favorite.getStatus());
-
-        return database.update(DATABASE_TABLE, args, FAVID + "= '" + favorite.getFavId() + "'", null);
-    }
-
-    public int deleteFavorite(int id) {
-        return database.delete(TABLE_FAVORITE, _ID + " = '" + id + "'", null);
-    }
-
     public int deleteFav(String favid) {
         return database.delete(TABLE_FAVORITE, FAVID + " = '" + favid + "'", null);
     }

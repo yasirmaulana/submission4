@@ -34,7 +34,7 @@
                 android:id="@+id/tv_item_fav_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Status"
+                android:text="@string/title_movies"
                 android:padding="@dimen/activity_horizontal_margin"
                 android:background="#4D000000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"

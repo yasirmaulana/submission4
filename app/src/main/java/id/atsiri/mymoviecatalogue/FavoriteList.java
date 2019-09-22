@@ -1,9 +1,6 @@
 package id.atsiri.mymoviecatalogue;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,19 +18,14 @@ import id.atsiri.mymoviecatalogue.entity.Favorite;
 public class FavoriteList extends AppCompatActivity implements View.OnClickListener, LoadFavoritesCallback {
     private RecyclerView rvFavorite;
     private ProgressBar progressBar;
-    private FloatingActionButton fabAdd;
     private static final String EXTRA_STATE = "EXTRA_STATE";
     private FavoriteAdapter adapter;
     private FavoriteHelper favoriteHelper;
-    private String favid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_list);
-
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle("Favorites");
 
         rvFavorite = findViewById(R.id.rv_favorite);
         rvFavorite.setLayoutManager(new LinearLayoutManager(this));
@@ -44,8 +36,6 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
         favoriteHelper.open();
 
         progressBar = findViewById(R.id.progressbar_favorite_rv);
-//        fabAdd = findViewById(R.id.fab_add);
-//        fabAdd.setOnClickListener(this);
 
         adapter = new FavoriteAdapter(this);
         rvFavorite.setAdapter(adapter);
@@ -68,10 +58,6 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-//        if (view.getId() == R.id.fab_add) {
-//            Intent intent = new Intent(FavoriteList.this, FavoritAddUpdateActivity.class);
-//            startActivityForResult(intent, FavoritAddUpdateActivity.REQUEST_ADD);
-//        }
     }
 
     @Override
@@ -120,42 +106,9 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (data != null) {
-            if (requestCode == FavoritAddUpdateActivity.REQUEST_ADD) {
-                if (resultCode == FavoritAddUpdateActivity.RESULT_ADD) {
-                    Favorite favorite = data.getParcelableExtra(FavoritAddUpdateActivity.EXTRA_FAVORITE);
-                    adapter.addItem(favorite);
-                    rvFavorite.smoothScrollToPosition(adapter.getItemCount() - 1);
-                    showSnackbarMessage("Satu item berhasil ditambahkan");
-                }
-            }
-            else if (requestCode == FavoritAddUpdateActivity.REQUEST_UPDATE) {
-                if (resultCode == FavoritAddUpdateActivity.RESULT_UPDATE) {
-                    Favorite favorite = data.getParcelableExtra(FavoritAddUpdateActivity.EXTRA_FAVORITE);
-                    int position = data.getIntExtra(FavoritAddUpdateActivity.EXTRA_POSITION, 0);
-                    adapter.updateItem(position, favorite);
-                    rvFavorite.smoothScrollToPosition(position);
-                    showSnackbarMessage("Satu item berhasil diubah");
-                }
-                else if (resultCode == FavoritAddUpdateActivity.RESULT_DELETE) {
-                    int position = data.getIntExtra(FavoritAddUpdateActivity.EXTRA_POSITION, 0);
-                    adapter.removeItem(position);
-                    showSnackbarMessage("Satu item berhasil dihapus");
-                }
-            }
-        }
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         favoriteHelper.close();
     }
 
-    private void showSnackbarMessage(String message) {
-        Snackbar.make(rvFavorite, message, Snackbar.LENGTH_SHORT).show();
-    }
 }
