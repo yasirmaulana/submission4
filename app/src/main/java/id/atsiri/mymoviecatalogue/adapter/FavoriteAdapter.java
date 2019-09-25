@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.BuildConfig;
 import id.atsiri.mymoviecatalogue.CustomOnItemClickListener;
 import id.atsiri.mymoviecatalogue.FavoriteDetailActivity;
 import id.atsiri.mymoviecatalogue.R;
@@ -67,10 +68,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
-        String sPath = "https://image.tmdb.org/t/p/w342";
+//        String sPath = "https://image.tmdb.org/t/p/w342";
 
         Glide.with(activity)
-                .load(sPath + listFavorites.get(position).getBackdropPath())
+                .load(BuildConfig.TMDB_PATH_PICTURE + listFavorites.get(position).getBackdropPath())
                 .into(holder.imgFav);
         holder.tvStatus.setText(listFavorites.get(position).getStatus());
         holder.tvTitle.setText(listFavorites.get(position).getTitle());

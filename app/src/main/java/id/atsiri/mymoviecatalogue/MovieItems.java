@@ -31,7 +31,7 @@ public class MovieItems implements Parcelable {
     };
 
     public String getBackdropPath() {
-        String sbackdropPath = "https://image.tmdb.org/t/p/w342" + backdropPath;
+        String sbackdropPath = BuildConfig.TMDB_PATH_PICTURE + backdropPath;
         return sbackdropPath;
     }
 

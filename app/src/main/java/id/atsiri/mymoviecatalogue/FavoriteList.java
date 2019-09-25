@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -76,7 +77,12 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
     @Override
     public void postExecute(ArrayList<Favorite> favorites) {
         progressBar.setVisibility(View.INVISIBLE);
-        adapter.setListFavorites(favorites);
+        if (favorites.size() > 0) {
+            adapter.setListFavorites(favorites);
+        } else {
+            Toast.makeText(this, "Tidak ada data di Favorit" , Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private static class LoadFavoritesAsync extends AsyncTask<Void, Void, ArrayList<Favorite>> {
