@@ -11,4 +11,5 @@
     <string name="favorite_detail">Detail Daftar Suka</string>
     <string name="submit">submit</string>
     <string name="delete">Hapus</string>
+    <string name="home">beranda</string>
 </resources>

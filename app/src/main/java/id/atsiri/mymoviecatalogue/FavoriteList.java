@@ -1,10 +1,13 @@
 package id.atsiri.mymoviecatalogue;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -109,6 +112,29 @@ public class FavoriteList extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         favoriteHelper.close();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent moveToHome = new Intent(FavoriteList.this, MainActivity.class);
+        startActivity(moveToHome);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_form, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_home:
+                Intent moveToHome = new Intent(FavoriteList.this, MainActivity.class);
+                startActivity(moveToHome);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

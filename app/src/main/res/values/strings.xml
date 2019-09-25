@@ -11,4 +11,5 @@
     <string name="favorite_detail">Favorite Detail</string>
     <string name="submit">submit</string>
     <string name="delete">delete</string>
+    <string name="home">Home</string>
 </resources>
