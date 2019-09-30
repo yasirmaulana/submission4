@@ -12,4 +12,7 @@
     <string name="submit">submit</string>
     <string name="delete">Hapus</string>
     <string name="home">beranda</string>
+    <string name="search_movie">Pencarian Film</string>
+    <string name="search_tvshow">Pencarian Acara TV</string>
+    <string name="search">Pencarian</string>
 </resources>

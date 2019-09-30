@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import id.atsiri.mymoviecatalogue.BuildConfig;
 import id.atsiri.mymoviecatalogue.CustomOnItemClickListener;
-import id.atsiri.mymoviecatalogue.FavoriteDetailActivity;
+import id.atsiri.mymoviecatalogue.favorite.FavoriteDetailActivity;
 import id.atsiri.mymoviecatalogue.R;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 

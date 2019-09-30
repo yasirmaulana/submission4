@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import id.atsiri.mymoviecatalogue.R;
-import id.atsiri.mymoviecatalogue.TvShowItems;
+import id.atsiri.mymoviecatalogue.tvshow.TvShowItems;
 
 public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.TvShowViewHolder> {
     private ArrayList<TvShowItems> mData = new ArrayList<>();

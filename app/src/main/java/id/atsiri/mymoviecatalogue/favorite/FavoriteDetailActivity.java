@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.favorite;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import id.atsiri.mymoviecatalogue.MainActivity;
+import id.atsiri.mymoviecatalogue.R;
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;
 

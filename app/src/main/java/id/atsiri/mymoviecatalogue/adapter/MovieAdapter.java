@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import id.atsiri.mymoviecatalogue.MovieItems;
+import id.atsiri.mymoviecatalogue.movie.MovieItems;
 import id.atsiri.mymoviecatalogue.R;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {

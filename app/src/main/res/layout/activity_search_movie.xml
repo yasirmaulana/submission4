@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".movie.MovieListFragment">
+    tools:context=".movieSearch.SearchMovieActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -16,9 +16,9 @@
         android:visibility="gone"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_movie"
+        android:id="@+id/rv_movie_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_cardview_movie" />
+        tools:listitem="@layout/item_movie_search" />
 
 </RelativeLayout>

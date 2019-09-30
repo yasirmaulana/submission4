@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.favorite;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,6 +15,9 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.LoadFavoritesCallback;
+import id.atsiri.mymoviecatalogue.MainActivity;
+import id.atsiri.mymoviecatalogue.R;
 import id.atsiri.mymoviecatalogue.adapter.FavoriteAdapter;
 import id.atsiri.mymoviecatalogue.db.FavoriteHelper;
 import id.atsiri.mymoviecatalogue.entity.Favorite;

@@ -1,9 +1,11 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.movie;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import org.json.JSONObject;
+
+import id.atsiri.mymoviecatalogue.BuildConfig;
 
 public class MovieItems implements Parcelable {
 

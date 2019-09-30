@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.movie;
 
 import org.json.JSONObject;
 

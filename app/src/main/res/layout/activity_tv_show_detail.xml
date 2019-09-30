@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6726F6F"
-    tools:context=".TvShowDetailActivity">
+    tools:context=".tvshow.TvShowDetailActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

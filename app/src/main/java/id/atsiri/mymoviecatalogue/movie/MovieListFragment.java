@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.movie;
 
 
 import android.arch.lifecycle.Observer;
@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.R;
 import id.atsiri.mymoviecatalogue.adapter.MovieAdapter;
 
 

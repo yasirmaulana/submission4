@@ -11,4 +11,16 @@
         android:title="@string/favorite"
         app:showAsAction="never"
         />
+
+    <item
+        android:id="@+id/action_movie_search"
+        android:title="@string/search_movie"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/action_tvshow_search"
+        android:title="@string/search_tvshow"
+        app:showAsAction="never"
+        />
 </menu>

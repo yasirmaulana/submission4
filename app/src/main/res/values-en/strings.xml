@@ -12,4 +12,7 @@
     <string name="submit">submit</string>
     <string name="delete">delete</string>
     <string name="home">Home</string>
+    <string name="search_movie">Search Movie</string>
+    <string name="search_tvshow">Search TvShow</string>
+    <string name="search">Search</string>
 </resources>

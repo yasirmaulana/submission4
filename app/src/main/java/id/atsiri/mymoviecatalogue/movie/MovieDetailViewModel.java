@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.movie;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -11,6 +11,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import id.atsiri.mymoviecatalogue.BuildConfig;
+import id.atsiri.mymoviecatalogue.movie.MovieDetail;
 
 public class MovieDetailViewModel extends ViewModel {
     private MutableLiveData<MovieDetail> movieDetailData = new MutableLiveData<>();
