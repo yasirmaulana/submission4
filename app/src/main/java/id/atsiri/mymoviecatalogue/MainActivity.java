@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import id.atsiri.mymoviecatalogue.favorite.FavoriteList;
 import id.atsiri.mymoviecatalogue.movie.MovieListFragment;
 import id.atsiri.mymoviecatalogue.movieSearch.SearchMovieActivity;
-import id.atsiri.mymoviecatalogue.tvShowSearch.TvShowSearchActivity;
+import id.atsiri.mymoviecatalogue.tvShowSearch.SearchTvShowActivity;
 import id.atsiri.mymoviecatalogue.tvshow.TvShowListFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (item.getItemId() == R.id.action_tvshow_search) {
-            Intent searchMovie = new Intent(MainActivity.this, TvShowSearchActivity.class);
+            Intent searchMovie = new Intent(MainActivity.this, SearchTvShowActivity.class);
             startActivity(searchMovie);
         }
         return super.onOptionsItemSelected(item);

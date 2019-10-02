@@ -1,9 +1,14 @@
 package id.atsiri.mymoviecatalogue.tvShowSearch;
 
 import android.app.SearchManager;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,19 +16,20 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import id.atsiri.mymoviecatalogue.R;
 
-
-public class TvShowSearchActivity extends AppCompatActivity {
-
+public class SearchTvShowActivity extends AppCompatActivity {
+    private SearchTvShowAdapter adapter;
     private ProgressBar progressBar;
+    private SearchTvShowViewModel searchTvShowViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tv_show_search);
+        setContentView(R.layout.activity_search_tv_shows);
 
-        Toast.makeText(this, "ini halaman tv show search", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -40,7 +46,23 @@ public class TvShowSearchActivity extends AppCompatActivity {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    Toast.makeText(TvShowSearchActivity.this, query, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SearchTvShowActivity.this, query, Toast.LENGTH_SHORT).show();
+
+                    searchTvShowViewModel = ViewModelProviders.of(SearchTvShowActivity.this).get(SearchTvShowViewModel.class);
+                    searchTvShowViewModel.getTvShows().observe(SearchTvShowActivity.this, getTvShow);
+
+                    adapter = new SearchTvShowAdapter();
+                    adapter.notifyDataSetChanged();
+
+                    RecyclerView recyclerView = findViewById(R.id.rv_tvshow_search);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(SearchTvShowActivity.this));
+                    recyclerView.setAdapter(adapter);
+
+                    progressBar = findViewById(R.id.progressBar);
+
+                    showLoading(true);
+                    searchTvShowViewModel.setTvShowSearch(query);
+
                     return true;
                 }
                 @Override
@@ -51,6 +73,17 @@ public class TvShowSearchActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    private Observer<ArrayList<SearchTvShows>> getTvShow = new Observer<ArrayList<SearchTvShows>>() {
+        @Override
+        public void onChanged(@Nullable ArrayList<SearchTvShows> searchTvShows) {
+            if (searchTvShows != null){
+                adapter.setData(searchTvShows);
+                showLoading(false);
+            }
+        }
+    };
+
 
     private void showLoading(Boolean state) {
         if (state) {

@@ -15,4 +15,7 @@
     <string name="search_movie">Pencarian Film</string>
     <string name="search_tvshow">Pencarian Acara TV</string>
     <string name="search">Pencarian</string>
+    <string name="appwidget_text">Favorite Widget</string>
+    <string name="add_widget">Tambah widget</string>
+    <string name="empty_text">Tidak ada data</string>
 </resources>

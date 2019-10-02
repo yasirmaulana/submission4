@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue.tvshow;
+package id.atsiri.mymoviecatalogue.tvShowSearch;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,15 +7,11 @@ import org.json.JSONObject;
 
 import id.atsiri.mymoviecatalogue.BuildConfig;
 
-public class TvShowItems implements Parcelable {
-
+public class SearchTvShows implements Parcelable {
     private int id;
     private String backdropPath, voteAverage, title, firstAirDate;
 
-    TvShowItems() {
-    }
-
-    protected TvShowItems(Parcel in) {
+    protected SearchTvShows(Parcel in) {
         id = in.readInt();
         backdropPath = in.readString();
         voteAverage = in.readString();
@@ -23,60 +19,38 @@ public class TvShowItems implements Parcelable {
         firstAirDate = in.readString();
     }
 
-    public static final Creator<TvShowItems> CREATOR = new Creator<TvShowItems>() {
+    public static final Creator<SearchTvShows> CREATOR = new Creator<SearchTvShows>() {
         @Override
-        public TvShowItems createFromParcel(Parcel in) {
-            return new TvShowItems(in);
-        }
+        public SearchTvShows createFromParcel(Parcel in) { return new SearchTvShows(in); }
 
         @Override
-        public TvShowItems[] newArray(int size) {
-            return new TvShowItems[size];
-        }
+        public SearchTvShows[] newArray(int size) { return new SearchTvShows[size]; }
     };
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getBackdropPath() {
         String sbackdropPath = BuildConfig.TMDB_PATH_PICTURE + backdropPath;
         return sbackdropPath;
     }
 
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
-    }
+    public void setBackdropPath(String backdropPath) { this.backdropPath = backdropPath; }
 
-    public String getVoteAverage() {
-        return voteAverage;
-    }
+    public String getVoteAverage() { return voteAverage; }
 
-    public void setVoteAverage(String voteAverage) {
-        this.voteAverage = voteAverage;
-    }
+    public void setVoteAverage(String voteAverage) { this.voteAverage = voteAverage; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getFirstAirDate() {
-        return firstAirDate;
-    }
+    public String getFirstAirDate() { return firstAirDate; }
 
-    public void setFirstAirDate(String firstAirDate) {
-        this.firstAirDate = firstAirDate;
-    }
+    public void setFirstAirDate(String firstAirDate) { this.firstAirDate = firstAirDate; }
 
-    public TvShowItems(JSONObject object) {
+    public SearchTvShows(JSONObject object) {
         try {
             int id = object.getInt("id");
             String backdropPath = object.getString("backdrop_path");
@@ -96,9 +70,7 @@ public class TvShowItems implements Parcelable {
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
+    public int describeContents() { return 0; }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {

@@ -65,7 +65,7 @@
                     android:text="@string/user_score" />
 
                 <TextView
-                    android:id="@+id/tv_movie_date_tssearch"
+                    android:id="@+id/tv_tvshow_date_tssearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"

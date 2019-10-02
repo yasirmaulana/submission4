@@ -15,4 +15,7 @@
     <string name="search_movie">Search Movie</string>
     <string name="search_tvshow">Search TvShow</string>
     <string name="search">Search</string>
+    <string name="appwidget_text">Favorite Widget</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_text">NO DATA</string>
 </resources>
