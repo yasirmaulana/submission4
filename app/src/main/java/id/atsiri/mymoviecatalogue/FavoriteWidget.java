@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue.stackWidget;
+package id.atsiri.mymoviecatalogue;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-
-import id.atsiri.mymoviecatalogue.R;
 
 /**
  * Implementation of App Widget functionality.

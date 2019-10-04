@@ -1,7 +1,9 @@
-package id.atsiri.mymoviecatalogue.stackWidget;
+package id.atsiri.mymoviecatalogue;
 
 import android.content.Intent;
 import android.widget.RemoteViewsService;
+
+import id.atsiri.mymoviecatalogue.StackRemoteViewsFactory;
 
 public class StackWidgetService extends RemoteViewsService {
 

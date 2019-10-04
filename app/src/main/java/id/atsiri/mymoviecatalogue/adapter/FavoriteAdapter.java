@@ -68,8 +68,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
-//        String sPath = "https://image.tmdb.org/t/p/w342";
-
         Glide.with(activity)
                 .load(BuildConfig.TMDB_PATH_PICTURE + listFavorites.get(position).getBackdropPath())
                 .into(holder.imgFav);

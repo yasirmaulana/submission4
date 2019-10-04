@@ -23,7 +23,7 @@ import static id.atsiri.mymoviecatalogue.db.DatabaseContract.TABLE_FAVORITE;
 
 
 public class FavoriteHelper {
-    private static final String DATABASE_TABLE = TABLE_FAVORITE;
+    public static final String DATABASE_TABLE = TABLE_FAVORITE;
     private static DatabaseHelper databaseHelper;
     private static FavoriteHelper INSTANCE;
 

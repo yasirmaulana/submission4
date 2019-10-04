@@ -30,6 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DatabaseContract.FavoriteColumns.STATUS
     );
 
+    public static final String[] POSTER_COLUMN = {DatabaseContract.FavoriteColumns.POSTERPATH};
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
